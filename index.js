@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const PORT = 8800;
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const helmet = require('helmet');
@@ -29,7 +30,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 mongoose.connect(
-  `mongodb+srv://Gurinder121:Honeycomb123@cluster0.nnolpbd.mongodb.net/?retryWrites=true&w=majority`,
+  `mongodb+srv://Gurinder:Honeycomb123@cluster0.ntonyxy.mongodb.net/?retryWrites=true&w=majority`,
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => {
     console.log('Connected to MongoDB');
@@ -48,7 +49,7 @@ app.get('/users', (req, res) => {
     }
   });
 });
-
+// test
 // middleware
 app.use(express.json());
 app.use(helmet());
@@ -60,6 +61,6 @@ app.use('/api/users', userRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/posts', postRouter);
 
-app.listen(8800, () => {
-  console.log('Backend server is running!');
+app.listen(PORT, () => {
+  console.log(`Backend server is running on PORT: ${PORT}.`);
 });
