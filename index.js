@@ -32,8 +32,8 @@ app.use(cors(corsOptions));
 mongoose.connect(
   `mongodb+srv://Gurinder:Honeycomb123@cluster0.ntonyxy.mongodb.net/?retryWrites=true&w=majority`,
   { useNewUrlParser: true, useUnifiedTopology: true },
-  () => {
-    console.log('Connected to MongoDB');
+  (result) => {
+    console.log('Connected to MongoDB', result);
   }
 );
 app.get('/', (req, res) => {
